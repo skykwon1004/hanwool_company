@@ -59,13 +59,7 @@ include_once(G5_THEME_PATH.'/head.php');
                     </figure>
                 </div>
                 <div class="m_link">
-                    <ul class="submenu">
-                        <li><a href="../htm/m021.php">HWC540DL</a></li>
-                        <li><a href="../htm/m022.php">HWC620FL</a></li>
-                        <li><a href="../htm/m023.php">HWC680FL</a></li>
-                        <li><a href="../htm/m024.php">HWC540FL</a></li>
-                        <li><a href="../htm/m025.php">HWC790FL</a></li>
-                    </ul>
+                    <? include G5_THEME_PATH.'/doc/nav02.php'; ?>
                 </div>
             </section>
             <section class="mainMap">
@@ -95,9 +89,13 @@ include_once(G5_THEME_PATH.'/head.php');
             <section class="mainCustomer">
                 <div class="inner">
                     <div class="news">
-                        <h3>news &amp; notice <a href="..."><i class="xi-plus"></i></a></h3>
-                        <div class="con">
-
+                        <h3>news &amp; notice <a href="/bbs/board.php?bo_table=nos"><i class="xi-plus"></i></a></h3>
+                        <div class="latest">
+                            <!-- 최근게시물 -->
+                            <?php 
+                                echo latest('theme/basic', 'nos', 4, 35);
+                                //  4, 35 뒤에 35는 글자 말줄일때 글자 수
+                            ?>
                         </div>
                     </div>
                     <div class="sang">
@@ -106,8 +104,8 @@ include_once(G5_THEME_PATH.'/head.php');
                         </figure>
                     </div>
                     <div class="contact">
-                        <a href="tel:051-786-2317">051-786-2317</a>
-                        <p>부산 경남 캠핑카 제작 전문 업체 트럭 개조 캠핑카 주문 제작 한울캠핑카</p>
+                        <a href="tel:<?= $as_tel?>"><?= $as_tel?></a>
+                        <p><?= $as_description?></p>
                         <a
                             href="https://www.youtube.com/results?search_query=%ED%95%9C%EC%9A%B8%EC%BA%A0%ED%95%91%EC%B9%B4">
                             <i class="xi-youtube-play"></i>
